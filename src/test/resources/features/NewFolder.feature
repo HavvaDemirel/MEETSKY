@@ -6,11 +6,11 @@ Scenario: User can create a new folder
   Given the user is on the dashboard page
   When the user click on the files button
   And the user clicks the + icon
-When user see new file section on the dropdown
-And user clicks new file
-When the user enters a name  for the new folder
-And the user clicks the arrow icon to create the folder
-Then the new folder should be created successfully
+  When user see new file section on the dropdown
+  And user clicks new file
+  When the user enters a name  for the new folder
+  And the user clicks the arrow icon to create the folder
+  Then the new folder should be created successfully
 
 
   @MEETS10-318

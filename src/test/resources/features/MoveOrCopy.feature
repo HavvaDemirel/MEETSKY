@@ -25,7 +25,7 @@ User can move or copy any selected item to any folder
     Then the selected item should stay its original location
     And the selected item should appear in the destination folder
 
-@3
+@MEETS10-343
 
   Scenario: User move a selected item to new folder
 
@@ -36,13 +36,14 @@ User can move or copy any selected item to any folder
     When the user see the choose target folder window
     And the user click plus button in the target file
     When the user enter any name
+  And click create button
     Then user is in the new folder
     When user click move button
-    Then the selected item should  move from its original location
-    And the selected item should appear in the new folder
-    Then a new folder created and appear in the files page
+  Then the selected item should  move from its original location
+  Then a new folder created and appear in the files page
+  And the selected item should appear in the new folder
 
-@4
+  @MEETS10-344
   Scenario: User copy a selected item to new folder
     Given the user is on the dashboard page
     When the user click on the files button
@@ -52,7 +53,6 @@ User can move or copy any selected item to any folder
     And the user click plus button in the target file
     When the user enter any name
     And click create button
-    Then a new folder created and appear in the files page
     And user is in the new folder
     When user click copy button
     Then the selected item should stay its original location

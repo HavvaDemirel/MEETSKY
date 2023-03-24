@@ -1,9 +1,13 @@
 package com.meetsky.pages;
 
 import com.meetsky.utilities.Driver;
+import org.bouncycastle.jcajce.provider.asymmetric.X509;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import javax.lang.model.element.Element;
+import java.util.List;
 
 public class FilesPage {
     public FilesPage() {
@@ -122,6 +126,11 @@ public class FilesPage {
 
     public WebElement copyButton;
 
+
+
+    @FindBy(xpath = "//*[@id=\"body-user\"]/div[10]/div[2]/button[1]")
+    public WebElement newFileCopyButton;
+
     @FindBy(xpath = "//button[contains(text(), 'Move to')]\n")
     //button[@class='' and text()='Move to New folder']
 
@@ -172,8 +181,24 @@ public class FilesPage {
     public WebElement targetFileNameConfirmButton;
 
 
-    @FindBy(xpath = "//div[@data-dir='//New folder']")
+    @FindBy(xpath = " //h2[.='Choose target folder']")
+    //div[@data-dir='//New folder']
+
+    //h2[.='Choose target folder']
     public WebElement targetFileNewFolder;
+
+
+
+    @FindBy(xpath = "//button[@class='primary']")
+    public WebElement moveButtonNewFile;
+
+
+    @FindBy(xpath = "//tr/td[2]")
+    public List<WebElement> tableElements;
+
+
+
+
 
 
 

@@ -1,4 +1,4 @@
-package com.meetsky.step_definitions.done;
+package com.meetsky.step_definitions;
 
 import com.meetsky.pages.FilesPage;
 import com.meetsky.utilities.BrowserUtils;

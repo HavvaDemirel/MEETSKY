@@ -1,4 +1,4 @@
-package com.meetsky.step_definitions.done;
+package com.meetsky.step_definitions;
 
 import com.github.javafaker.Faker;
 import com.meetsky.pages.FilesPage;
@@ -10,14 +10,18 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NewFolder_StepDefiniton {
 
 
         LoginPage loginPage = new LoginPage();
         FilesPage filesPage = new FilesPage();
-    Faker faker = new Faker();
-    String fileName = "1";
+   Faker faker = new Faker();
+   // String fileName = "1";
 
 
         @Given("the user is on the dashboard page")
@@ -56,7 +60,7 @@ public class NewFolder_StepDefiniton {
         @When("the user enters a name  for the new folder")
         public void the_user_enters_a_name_for_the_new_folder() {
            BrowserUtils.sleep(2);
-           filesPage.newFolderButtonName.sendKeys(fileName);
+           filesPage.newFolderButtonName.sendKeys(ConfigurationReader.getProperty("new.file.name"));
             BrowserUtils.sleep(5);
 
 
@@ -64,13 +68,26 @@ public class NewFolder_StepDefiniton {
         @When("the user clicks the arrow icon to create the folder")
         public void the_user_clicks_the_arrow_icon_to_create_the_folder() {
            filesPage.uploadFolderNameConfirm.click();
+
+
         }
         @Then("the new folder should be created successfully")
         public void the_new_folder_should_be_created_successfully() {
-           BrowserUtils.sleep(3);
-           String firstRowAFTER = filesPage.firstRow.getText();
-           BrowserUtils.sleep(3);
-           Assert.assertEquals(firstRowAFTER,fileName);
+
+            BrowserUtils.sleep(10);
+
+
+            List<WebElement> tableNames = filesPage.tableElements;
+
+            List<String> fileNames = new ArrayList<>();
+
+           for (WebElement name :  tableNames ){
+               fileNames.add(name.getText());
+
+           }
+
+
+           Assert.assertTrue(fileNames.contains(ConfigurationReader.getProperty("new.file.name")));
 
 
         }
@@ -139,13 +156,7 @@ public class NewFolder_StepDefiniton {
         public void user_can_see_the_page_which_opens_on_the_right() {
          Assert.assertTrue(filesPage.newFolderNewWindow.isDisplayed());
 
-
-
         }
-
-
-
-
 
 
 }
