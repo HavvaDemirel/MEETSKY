@@ -56,7 +56,7 @@ public class MoveOrCopy_StepDefinition {
             fileNames.add(name.getText());
 
         }
-        if (!fileNames.contains("Talk")) {
+        if (!fileNames.contains(ConfigurationReader.getProperty("selectedfile.name"))) {
             fileIsRemoved = true;
         }
 
@@ -90,7 +90,7 @@ public class MoveOrCopy_StepDefinition {
 
         }
         BrowserUtils.sleep(10);
-        Assert.assertTrue(fileNames.contains("Talk"));
+        Assert.assertTrue(fileNames.contains(ConfigurationReader.getProperty("selectedfile.name")));
        /*
         BrowserUtils.sleep(2);
         filesPage.secondRow.click();
@@ -121,7 +121,7 @@ public class MoveOrCopy_StepDefinition {
 
         String firstRowAfterCopying = filesPage.firstRowAfterCopying.getText();
         System.out.println(firstRowAfterCopying);
-        Assert.assertEquals(firstRowAfterCopying, "Talk");
+        Assert.assertEquals(firstRowAfterCopying, ConfigurationReader.getProperty("selectedfile.name"));
 
 
     }
@@ -136,13 +136,12 @@ public class MoveOrCopy_StepDefinition {
 
     @When("the user enter any name")
     public void the_user_enter_any_name() {
-    //   filesPage.targetFileNameInputBox.click();
-    //   filesPage.targetFileNameInputBox.sendKeys("hhhhhh");
+
 
         BrowserUtils.waitForVisibility(filesPage.targetFileNameConfirmButton,5);
 
        Actions actions = new Actions(Driver.getDriver());
-        actions.sendKeys("aaa" + Keys.ENTER).perform();
+        actions.sendKeys(ConfigurationReader.getProperty("target.new.file") + Keys.ENTER).perform();
         //actions.sendKeys(Keys.ENTER).perform();*/
 
     }
@@ -183,7 +182,7 @@ public class MoveOrCopy_StepDefinition {
             fileNames.add(name.getText());
 
         }
-        if (!fileNames.contains("Talk")) {
+        if (!fileNames.contains(ConfigurationReader.getProperty("selectedfile.name"))) {
            fileIsRemoved = true;
         }
 
@@ -211,7 +210,7 @@ public class MoveOrCopy_StepDefinition {
             fileNames.add(name.getText());
 
         }
-        Assert.assertTrue(fileNames.contains("aaa"));
+        Assert.assertTrue(fileNames.contains(ConfigurationReader.getProperty("target.new.file")));
 
 
 
@@ -225,7 +224,8 @@ public class MoveOrCopy_StepDefinition {
 
 
        // Driver.getDriver().navigate().refresh();
-        filesPage.secondRow.click();
+       // filesPage.secondRow.click();
+        filesPage.tableElements.get(2).click();
         BrowserUtils.sleep(10);
 
 
@@ -238,7 +238,9 @@ public class MoveOrCopy_StepDefinition {
 
         }
         BrowserUtils.sleep(10);
-        Assert.assertTrue(fileNames.contains("Talk"));
+        Assert.assertTrue(fileNames.contains(ConfigurationReader.getProperty("selectedfile.name")));
+
+
 
     }
      //____________________________________________________________copy new folder

@@ -103,7 +103,7 @@ public class NewFolder_StepDefiniton {
             filesPage.plusIcon.click();
             filesPage.newFolderButton.click();
             BrowserUtils.sleep(5);
-           filesPage.newFolderButtonName.sendKeys("TestFolderc");
+           filesPage.newFolderButtonName.sendKeys(ConfigurationReader.getProperty("test.folder.name"));
             filesPage.uploadFolderNameConfirm.click();
             BrowserUtils.sleep(5);
         }
@@ -113,7 +113,7 @@ public class NewFolder_StepDefiniton {
             filesPage.newFolderButton.click();
             BrowserUtils.sleep(3);
 
-            filesPage.newFolderButtonName.sendKeys("TestFolderc");
+            filesPage.newFolderButtonName.sendKeys(ConfigurationReader.getProperty("test.folder.name"));
             String errorMessage = filesPage.newFolderAlreadyExistMessage.getText();
             System.out.println(errorMessage);
             BrowserUtils.sleep(2);
