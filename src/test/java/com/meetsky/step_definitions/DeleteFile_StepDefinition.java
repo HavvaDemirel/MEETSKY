@@ -11,17 +11,18 @@ public class DeleteFile_StepDefinition {
     String totalFoldersBefore = filesPage.totalFolders.getText();
     @When("the user selects an item by clicking on the three dots menu")
     public void the_user_selects_an_item_by_clicking_on_the_three_dots_menu() {
-        BrowserUtils.sleep(3);
+       // BrowserUtils.sleep(3);
         filesPage.threeDots.click();
-        BrowserUtils.sleep(3);
+       //BrowserUtils.sleep(3);
+
 
     }
 
     @When("selects Delete folder button")
     public void selects_delete_folder_button() {
-        BrowserUtils.sleep(3);
+       // BrowserUtils.sleep(3);
        filesPage.deleteButton.click();
-        BrowserUtils.sleep(3);
+       // BrowserUtils.sleep(3);
     }
 
     @Then("the selected item should be deleted from files page")
