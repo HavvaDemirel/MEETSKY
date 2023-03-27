@@ -45,7 +45,7 @@ public class NewFolder_StepDefiniton {
 
        @When("the user clicks the + icon")
         public void the_user_clicks_the_icon() {
-           String firstRow = filesPage.firstRow.getText();
+
             filesPage.plusIcon.click();
         }
         @When("user see new file section on the dropdown")
@@ -124,6 +124,16 @@ public class NewFolder_StepDefiniton {
 
 
            Assert.assertTrue(filesPage.newFolderAlreadyExistMessage.isDisplayed());
+
+
+            filesPage.threeDots.click();
+            filesPage.deleteButton.click();
+
+
+
+
+
+
         }
 //___________________________________________________________________________________________________________MultipleFile
         @Then("the user repeats the above steps with a different unique name for the new folder")

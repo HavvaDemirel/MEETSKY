@@ -63,11 +63,6 @@ public class MoveOrCopy_StepDefinition {
 
         Assert.assertTrue(fileIsRemoved);
 
-      /*  BrowserUtils.sleep(3);
-        //filesPage.firstRow.click();
-        String fileName = filesPage.FirstRow.getText();
-        System.out.println(fileName);
-        Assert.assertNotEquals(fileName, "Talk");*/
 
     }
 
@@ -91,14 +86,7 @@ public class MoveOrCopy_StepDefinition {
         }
         BrowserUtils.sleep(10);
         Assert.assertTrue(fileNames.contains(ConfigurationReader.getProperty("selectedfile.name")));
-       /*
-        BrowserUtils.sleep(2);
-        filesPage.secondRow.click();
-        BrowserUtils.sleep(5);                                                                          //here
-        String targetFile = filesPage.targetFileFirstRow.getText();
-        System.out.println(targetFile);
-        BrowserUtils.sleep(3);
-        Assert.assertEquals(targetFile, "Talk");*/
+
 
     }
 
@@ -110,18 +98,27 @@ public class MoveOrCopy_StepDefinition {
         filesPage.copyButton.click();
     }
 
-  /*  @When("click copy button")
-    public void click_copy_button() {
-      }*/
 
 
     @Then("the selected item should stay its original location")
     public void the_selected_item_should_stay_its_original_location() {
         BrowserUtils.waitForVisibility(filesPage.plusIcon, 5);
 
-        String firstRowAfterCopying = filesPage.firstRowAfterCopying.getText();
-        System.out.println(firstRowAfterCopying);
-        Assert.assertEquals(firstRowAfterCopying, ConfigurationReader.getProperty("selectedfile.name"));
+        List<WebElement> tableNames = filesPage.tableElements;
+
+        List<String> fileNames = new ArrayList<>();
+
+        for (WebElement name :  tableNames ){
+            fileNames.add(name.getText());
+
+        }
+        Assert.assertTrue(fileNames.contains(ConfigurationReader.getProperty("selectedfile.name")));
+
+
+
+
+
+
 
 
     }
