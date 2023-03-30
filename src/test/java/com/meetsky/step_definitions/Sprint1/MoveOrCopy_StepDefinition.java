@@ -1,4 +1,4 @@
-package com.meetsky.step_definitions;
+package com.meetsky.step_definitions.Sprint1;
 
 import com.meetsky.pages.FilesPage;
 import com.meetsky.utilities.BrowserUtils;
@@ -251,7 +251,7 @@ public class MoveOrCopy_StepDefinition {
                 fileNames.add(names.getText());
 
             }
-            BrowserUtils.sleep(5);                                                                             ////burdan devam etttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt
+            BrowserUtils.sleep(5);                                              ////burdan devam etttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt
             Assert.assertTrue(fileNames.contains(ConfigurationReader.getProperty("selectedfile.name")));
 
 

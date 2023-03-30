@@ -1,4 +1,4 @@
-package com.meetsky.step_definitions;
+package com.meetsky.step_definitions.Sprint1;
 
 import com.github.javafaker.Faker;
 import com.meetsky.pages.FilesPage;
