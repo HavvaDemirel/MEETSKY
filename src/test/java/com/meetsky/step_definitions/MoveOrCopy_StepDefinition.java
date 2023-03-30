@@ -69,10 +69,10 @@ public class MoveOrCopy_StepDefinition {
     @Then("the selected item should appear in the destination folder")
     public void the_selected_item_should_appear_in_the_destination_folder() {
         BrowserUtils.sleep(5);
-      //  filesPage.firstRow.click();
 
 
-        filesPage.tableElements.get(1).click();//for copy i should change index 2
+        filesPage.tableElements.get(2).click();//for copy i should change index 2
+
         BrowserUtils.sleep(10);
 
 
@@ -84,8 +84,26 @@ public class MoveOrCopy_StepDefinition {
             fileNames.add(name.getText());
 
         }
-        BrowserUtils.sleep(10);
+        BrowserUtils.sleep(3);
+
+
+        //  WebElement table = driver.findElement(By.xpath("//table[@class='my-table']"));
+
+      /*  WebElement row = tableNames.get(1);
+
+        String folderName = row.getText();
+
+        // print the folder name
+        System.out.println(folderName);*/
+
+
+
+       // Driver.getDriver().navigate().refresh();
         Assert.assertTrue(fileNames.contains(ConfigurationReader.getProperty("selectedfile.name")));
+
+       filesPage.targetFilethreeDot.click();
+       filesPage.targetFileDeleteButton.click();
+
 
 
     }
@@ -113,10 +131,6 @@ public class MoveOrCopy_StepDefinition {
 
         }
         Assert.assertTrue(fileNames.contains(ConfigurationReader.getProperty("selectedfile.name")));
-
-
-
-
 
 
 
@@ -161,13 +175,13 @@ public class MoveOrCopy_StepDefinition {
     @When("user click move button")
     public void user_click_move_button() {
         filesPage.moveButtonNewFile.click();
-        BrowserUtils.sleep(10);
+        BrowserUtils.sleep(3);
     }
 
     @Then("the selected item should  move from its original location")
     public void the_selected_item_should_move_from_its_original_location() {
 
-        BrowserUtils.sleep(10);
+        BrowserUtils.sleep(3);
        boolean fileIsRemoved = false;
 
 
@@ -211,35 +225,38 @@ public class MoveOrCopy_StepDefinition {
 
 
 
-
-
-
     }
 
     @Then("the selected item should appear in the new folder")
     public void the_selected_item_should_appear_in_the_new_folder() {
 
+        List<WebElement> tableNames = filesPage.tableFilesName;
 
-       // Driver.getDriver().navigate().refresh();
-       // filesPage.secondRow.click();
-        filesPage.tableElements.get(2).click();
-        BrowserUtils.sleep(10);
+        for (WebElement name :  tableNames ) {
 
+            if (name.getText().equals(ConfigurationReader.getProperty("target.new.file"))) {
 
-        List<WebElement> tableNames = filesPage.tableElements;
+                System.out.println(name.getText());
 
-        List<String> fileNames = new ArrayList<>();
-
-        for (WebElement name :  tableNames ){
-            fileNames.add(name.getText());
+                name.click();
+                break;
+            }
 
         }
-        BrowserUtils.sleep(10);
-        Assert.assertTrue(fileNames.contains(ConfigurationReader.getProperty("selectedfile.name")));
+
+        List<WebElement> tablesFiles = filesPage.tableElements;
+            List<String> fileNames = new ArrayList<>();
+
+            for (WebElement names : tablesFiles) {
+                fileNames.add(names.getText());
+
+            }
+            BrowserUtils.sleep(5);                                                                             ////burdan devam etttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt
+            Assert.assertTrue(fileNames.contains(ConfigurationReader.getProperty("selectedfile.name")));
 
 
+        }
 
-    }
      //____________________________________________________________copy new folder
 
     @When("user click copy button")

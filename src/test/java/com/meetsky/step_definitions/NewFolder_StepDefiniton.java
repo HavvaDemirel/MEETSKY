@@ -128,10 +128,23 @@ public class NewFolder_StepDefiniton {
 
             filesPage.threeDots.click();
             filesPage.deleteButton.click();
+            boolean deleted = false;
 
 
+            List<WebElement> tableNames = filesPage.tableElements;
+
+            List<String> fileNames = new ArrayList<>();
+
+            for (WebElement name :  tableNames ){
+                fileNames.add(name.getText());
+
+            }
+            if (!fileNames.contains(ConfigurationReader.getProperty("selectedfile.name"))) {
+                deleted= true;
+            }
 
 
+            Assert.assertTrue(deleted);
 
 
         }

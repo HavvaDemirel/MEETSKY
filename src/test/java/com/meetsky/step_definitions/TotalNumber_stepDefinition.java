@@ -3,6 +3,7 @@ package com.meetsky.step_definitions;
 import com.github.javafaker.Faker;
 import com.meetsky.pages.FilesPage;
 import com.meetsky.utilities.BrowserUtils;
+import com.meetsky.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -15,9 +16,12 @@ public class TotalNumber_stepDefinition {
 
     @Then("the user should be able to see the total number of files and folders under the files list table")
     public void the_user_should_be_able_to_see_the_total_number_of_files_and_folders_under_the_files_list_table() {
+        BrowserUtils.sleep(3);
 
         Assert.assertTrue(filesPage.totalFiles.isDisplayed());
+
         Assert.assertTrue(filesPage.totalFolders.isDisplayed());
+        BrowserUtils.sleep(3);
 
 
 
@@ -33,17 +37,23 @@ public class TotalNumber_stepDefinition {
         String totalFoldersBefore = filesPage.totalFolders.getText();
 
         filesPage.plusIcon.click();
+
         filesPage.newFolderButton.click();
 
         filesPage.newFolderButtonName.sendKeys(faker.name().firstName());
 
         filesPage.uploadFolderNameConfirm.click();
 
+        Driver.getDriver().navigate().refresh();
+
         BrowserUtils.waitForVisibility(filesPage.totalFolders,5);
 
         System.out.println(totalFoldersBefore);
+
         System.out.println(filesPage.totalFolders.getText());
+
         Assert.assertNotEquals(totalFoldersBefore,filesPage.totalFolders.getText());
+
         BrowserUtils.sleep(5);
 
 
@@ -58,6 +68,8 @@ public class TotalNumber_stepDefinition {
 
 
             filesPage.deleteButton.click();
+
+            Driver.getDriver().navigate().refresh();
 
             BrowserUtils.waitForVisibility(filesPage.totalFolders,5);
 

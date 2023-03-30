@@ -1,6 +1,8 @@
 @MEETS10-324
 Feature: Delete Selected Item
   User can delete any selected item from its three dots menu
+
+
   Scenario: Delete selected item
     Given the user is on the dashboard page
     When the user click on the files button

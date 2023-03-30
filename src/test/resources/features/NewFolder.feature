@@ -1,10 +1,12 @@
-@newfolder
+
 Feature: User can create a new folder
+Given the user is on the dashboard page
+When the user click on the files button
+
+
 
 @MEETS10-316
 Scenario: User can create a new folder
-  Given the user is on the dashboard page
-  When the user click on the files button
   And the user clicks the + icon
   When user see new file section on the dropdown
   And user clicks new file
@@ -15,16 +17,12 @@ Scenario: User can create a new folder
 
   @MEETS10-318
   Scenario: User can not create a folder with a name that already exists
-    Given the user is on the dashboard page
-    When the user click on the files button
     And the user has already created a folder with name TestFolder
     When the user attempts to create a folder with name TestFolder
     Then the user should see an error message TestFolder already exists
 
   @MEETS10-319
   Scenario: User can create multiple folder
-    Given the user is on the dashboard page
-    When the user click on the files button
     And the user clicks the + icon
     When user see new file section on the dropdown
     And user clicks new file

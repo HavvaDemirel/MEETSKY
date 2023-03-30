@@ -16,6 +16,18 @@ public class DeleteFile_StepDefinition {
     String totalFoldersBefore = filesPage.totalFolders.getText();
     @When("the user selects an item by clicking on the three dots menu")
     public void the_user_selects_an_item_by_clicking_on_the_three_dots_menu() {
+        System.out.println(filesPage.threeDots.getText());
+
+        List<WebElement> tableNames = filesPage.tableElements;
+
+        List<String> fileNames = new ArrayList<>();
+
+        for (WebElement name :  tableNames ){
+            fileNames.add(name.getText());
+
+        }
+
+
        // BrowserUtils.sleep(3);
         filesPage.threeDots.click();
        //BrowserUtils.sleep(3);
@@ -25,6 +37,7 @@ public class DeleteFile_StepDefinition {
 
     @When("selects Delete folder button")
     public void selects_delete_folder_button() {
+
        // BrowserUtils.sleep(3);
        filesPage.deleteButton.click();
        // BrowserUtils.sleep(3);

@@ -45,7 +45,7 @@ public class NewTextFile_StepDefinition {
        BrowserUtils.sleep(10);
 
 
-      /*  List<WebElement> tableNames = filesPage.tableElements;
+      List<WebElement> tableNames = filesPage.tableElements;
 
         List<String> fileNames = new ArrayList<>();
 
@@ -56,15 +56,7 @@ public class NewTextFile_StepDefinition {
         BrowserUtils.sleep(10);
         System.out.println(fileNames);
 
-        Assert.assertTrue(fileNames.contains(ConfigurationReader.getProperty("new.textfile.name")));*/
-
-
-
-
-        String firstRowAFTER = filesPage.firstRow.getText();
-        System.out.println(firstRowAFTER);
-        BrowserUtils.sleep(3);
-        Assert.assertTrue(firstRowAFTER.contains(ConfigurationReader.getProperty("new.textfile.name")));
+        Assert.assertTrue(fileNames.contains(ConfigurationReader.getProperty("new.textfile.name")));
 
 
     }
