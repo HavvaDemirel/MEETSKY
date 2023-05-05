@@ -14,8 +14,8 @@ import org.junit.runner.RunWith;
         },
          features = "src/test/resources/features",
         glue = "com/meetsky/step_definitions",
-        dryRun =true,
-        tags = "@MEETS10",
+        dryRun =false,
+        tags = "",
         publish = false
 )
 

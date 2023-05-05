@@ -10,6 +10,8 @@ import org.junit.Assert;
 
 public class TotalNumber_stepDefinition {
 
+    //havva
+
     FilesPage filesPage = new FilesPage();
     Faker faker = new Faker();
 
@@ -76,9 +78,6 @@ public class TotalNumber_stepDefinition {
             System.out.println(totalFoldersBefore);
             System.out.println(filesPage.totalFolders.getText());
             Assert.assertNotEquals(totalFoldersBefore,filesPage.totalFolders.getText());
-
-
-
 
 
 

@@ -85,11 +85,40 @@ public class FilesPage {
     public WebElement targetFileDeleteButton;
     @FindBy(xpath = "//tbody[@id='fileList']/tr/td[2]/a/span[1]")
     public List<WebElement> tableFilesName;
-
-
-
-
-
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @FindBy(xpath = "//a[@class='menuitem action action-details permanent'][@data-action='Details']\n")
+    public WebElement detailsButton;
+    @FindBy(xpath ="//h2[@class='app-sidebar-header__maintitle has-tooltip']")
+    public WebElement sideBarTitle;
+    @FindBy(xpath = "//div[@class='comment__message']")
+    //div[@.='+""+']
+    //div[@class='comment__message']
+    public List<WebElement> commends;
+    @FindBy(xpath = "//button[@class='icon vue-button action-item__menutoggle action-item__menutoggle--default-icon'][@aria-haspopup='true'][@aria-controls='menu-rnimv'][@aria-expanded='false'][@test-attr='1']")
+    public WebElement sideBarThreeDotsIcon;
+    @FindBy(xpath = "//span[.='Delete comment']")
+    //ul[starts-with(@id,'menu')]/li[3]
+    //span[.='Delete comment']
+    public WebElement sideBarDeleteButton;
+    @FindBy(xpath = "//li[@class='app-sidebar-tabs__tab'][2]")
+    //a[@id='comments'][@aria-controls='tab-comments'][@aria-selected='true'][@data-id='comments'][contains(@class,'active')]
+    public WebElement commendButton;
+    @FindBy(xpath = "//div[@contenteditable='true'][@placeholder='Write message, @ to mention someone, : for emoji autocompletion …'][@aria-multiline='true'][contains(@class, 'rich-contenteditable__input')][@data-tribute='true']")
+    public WebElement commendInputBox;
+    @FindBy(xpath = "//input[@class='comment__submit icon-confirm has-tooltip']")
+    //input[@type='submit'][@class='comment__submit icon-confirm has-tooltip'][@data-original-title='null'][contains(@class, 'data-v-4bced5e9')]
+    //input[@class='comment__submit icon-confirm has-tooltip']
+    public WebElement submitButton;
+    @FindBy(xpath = "//div[contains(@class, 'toastify')][contains(@class, 'on')][contains(@class, 'dialogs')][contains(@class, 'toast-undo')][contains(@class, 'toastify-right')][contains(@class, 'toastify-top')][@style='transform: translate(0px, 0px); top: 15px;']")
+    public WebElement sideBarDeletedMessage;
+    ////////////////////////////////////////////////////////fav file
+    @FindBy(xpath = "//li[@class='nav-favorites collapsible ui-droppable']")
+    public WebElement favoritesFile;
+    @FindBy(xpath = "//a[@class='menu-option option-favorite']")
+    public WebElement addToFavoritesButton;
+    ////////////////////////////////////////////////////////////////rename
+    @FindBy(xpath = "//a[@class='menu-option option-rename' and @style='width: 100%;']")
+    public WebElement renameButton;
 
 
 

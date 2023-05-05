@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DeleteFile_StepDefinition {
+
+
+    //havva
     FilesPage filesPage = new FilesPage();
     String totalFoldersBefore = filesPage.totalFolders.getText();
     @When("the user selects an item by clicking on the three dots menu")
