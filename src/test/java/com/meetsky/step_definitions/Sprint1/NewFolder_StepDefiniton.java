@@ -17,11 +17,13 @@ import java.util.List;
 
 public class NewFolder_StepDefiniton {
 
+    //havva
+
 
         LoginPage loginPage = new LoginPage();
         FilesPage filesPage = new FilesPage();
    Faker faker = new Faker();
-   // String fileName = "1";
+
 
 
         @Given("the user is on the dashboard page")
@@ -36,6 +38,11 @@ public class NewFolder_StepDefiniton {
             loginPage.loginButton.click();
 
             Driver.getDriver().getTitle().equals(ConfigurationReader.getProperty("expected.title"));
+            BrowserUtils.sleep(5);
+            Driver.getDriver().navigate().back();
+            BrowserUtils.sleep(5);
+            Driver.getDriver().navigate().forward();
+            BrowserUtils.sleep(5);
         }
         @When("the user click on the files button")
         public void the_user_click_on_the_files_button() {
